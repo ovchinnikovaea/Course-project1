@@ -34,13 +34,15 @@ public class Main {
 
         indexSalary(employees, 10);
 
-        Employee employerOfDepartmentWithMinSalary = findEmployerOfDepartmentWithMinSalary(employees, 4);
+        Employee[] listOfDepartment = createListOfOneDepartment(employees, 4);
+        Employee employerOfDepartmentWithMinSalary = findEmployerWithMinSalary(listOfDepartment);
         System.out.println("Минимальная зарплата в отделе " + employerOfDepartmentWithMinSalary.getDepartment() + ": " + employerOfDepartmentWithMinSalary.getSalary() + " руб. у сотрудника " + employerOfDepartmentWithMinSalary.getFullName());
 
-        Employee employerOfDepartmentWithMaxSalary = findEmployerOfDepartmentWithMaxSalary(employees, 1);
+        Employee employerOfDepartmentWithMaxSalary = findEmployerWithMaxSalary(listOfDepartment);
         System.out.println("Максимальная зарплата в отделе " + employerOfDepartmentWithMaxSalary.getDepartment() + ": " + employerOfDepartmentWithMaxSalary.getSalary() + " руб. у сотрудника " + employerOfDepartmentWithMaxSalary.getFullName());
 
-        double middleSalaryOfDepartment = findMiddleSalaryOfDepartment(employees, 5);
+
+        double middleSalaryOfDepartment = calcMiddleSalary(listOfDepartment);
         System.out.println("Cредняя зарплата в отделе: " + middleSalaryOfDepartment + " руб.");
 
         indexSalaryOfDepartment(employees, 3, 10);
@@ -122,36 +124,36 @@ public class Main {
         return listOfDepartment;
     }
 
-    private static Employee findEmployerOfDepartmentWithMinSalary(Employee[] employees, int numberOfDepartment) {
-        Employee[] listOfDepartment = createListOfOneDepartment(employees, numberOfDepartment);
-        int index = 0;
-        for (int i = 0; i < listOfDepartment.length; i++) {
-            if (listOfDepartment[i].getSalary() < listOfDepartment[index].getSalary()) {
-                index = i;
-            }
-        }
-        return listOfDepartment[index];
-    }
+//    private static Employee findEmployerOfDepartmentWithMinSalary(Employee[] employees, int numberOfDepartment) {
+//        Employee[] listOfDepartment = createListOfOneDepartment(employees, numberOfDepartment);
+//        int index = 0;
+//        for (int i = 0; i < listOfDepartment.length; i++) {
+//            if (listOfDepartment[i].getSalary() < listOfDepartment[index].getSalary()) {
+//                index = i;
+//            }
+//        }
+//        return listOfDepartment[index];
+//    }
 
-    private static Employee findEmployerOfDepartmentWithMaxSalary(Employee[] employees, int numberOfDepartment) {
-        Employee[] listOfDepartment = createListOfOneDepartment(employees, numberOfDepartment);
-        int index = 0;
-        for (int i = 0; i < listOfDepartment.length; i++) {
-            if (listOfDepartment[i].getSalary() > listOfDepartment[index].getSalary()) {
-                index = i;
-            }
-        }
-        return listOfDepartment[index];
-    }
+//    private static Employee findEmployerOfDepartmentWithMaxSalary(Employee[] employees, int numberOfDepartment) {
+//        Employee[] listOfDepartment = createListOfOneDepartment(employees, numberOfDepartment);
+//        int index = 0;
+//        for (int i = 0; i < listOfDepartment.length; i++) {
+//            if (listOfDepartment[i].getSalary() > listOfDepartment[index].getSalary()) {
+//                index = i;
+//            }
+//        }
+//        return listOfDepartment[index];
+//    }
 
-    private static double findMiddleSalaryOfDepartment(Employee[] employees, int numberOfDepartment) {
-        Employee[] listOfOneDepartment = createListOfOneDepartment(employees, numberOfDepartment);
-        int sum = 0;
-        for (int i = 0; i < listOfOneDepartment.length; i++) {
-            sum += listOfOneDepartment[i].getSalary();
-        }
-        return sum / listOfOneDepartment.length;
-    }
+//    private static double findMiddleSalaryOfDepartment(Employee[] employees, int numberOfDepartment) {
+//        Employee[] listOfOneDepartment = createListOfOneDepartment(employees, numberOfDepartment);
+//        int sum = 0;
+//        for (int i = 0; i < listOfOneDepartment.length; i++) {
+//            sum += listOfOneDepartment[i].getSalary();
+//        }
+//        return sum / listOfOneDepartment.length;
+//    }
 
     private static void indexSalaryOfDepartment(Employee[] employees, int numberOfDepartment, int percent) {
         System.out.println("Зарплата сотрудников отдела " + numberOfDepartment + " после индексации: ");
