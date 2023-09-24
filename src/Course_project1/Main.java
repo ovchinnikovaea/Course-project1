@@ -56,7 +56,8 @@ public class Main {
 
         employeeBook.removeEmployee("Крючкова Мария Матвеевна");
 
-        employeeBook.changeEmployeeSalary("Мельников Николай Маркович", 80000);
+        employeeBook.changeEmployeeSalary("Давыдов Артём Тимурович", 80000);
+
 
         employeeBook.changeEmployeeDepartment("Мельников Николай Маркович", 1);
 
